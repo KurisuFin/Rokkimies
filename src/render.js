@@ -1,10 +1,11 @@
-var draw, drawBackground, drawBlocks, drawBullets, drawDebugInfo, drawDebugNotification, drawEndTexts, drawHighScores, drawMonsters, drawPlayer, drawScores, drawTitle, locationFix, render;
+var draw, drawBackground, drawBlocks, drawBullets, drawDebugInfo, drawDebugNotification, drawEndTexts, drawHelp, drawHighScores, drawMonsters, drawPlayer, drawScores, drawTitle, locationFix, render;
 
 render = function() {
   if (game.menu === menu.start) {
     drawBackground(color.background.start);
     drawTitle();
     drawHighScores();
+    drawHelp();
     if (debug.active) {
       drawDebugNotification();
     }
@@ -66,6 +67,21 @@ drawHighScores = function() {
     }
     return _results;
   }
+};
+
+drawHelp = function() {
+  var center, ctx, textSize, y;
+  center = screen.width / 2;
+  y = 500;
+  textSize = 20;
+  ctx = screen.context;
+  ctx.fillStyle = "rgb(230, 230, 230)";
+  ctx.font = textSize + "px Arial";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "alphabetic";
+  ctx.fillText("Z jump", center, y += textSize);
+  ctx.fillText("X shoot", center, y += textSize);
+  return ctx.fillText("ENTER start", center, y += textSize);
 };
 
 drawDebugNotification = function() {

@@ -3,6 +3,7 @@ render = ->
 		drawBackground(color.background.start)
 		drawTitle()
 		drawHighScores()
+		drawHelp()
 		drawDebugNotification() if debug.active
 	
 	if (game.menu == menu.game)
@@ -59,6 +60,23 @@ drawHighScores = ->
 		for i in [0..scores.length-1]
 			ctx.fillText(i+1+": "+scores[i], center, y += rowHeight)
 
+
+drawHelp = ->
+	center = screen.width / 2
+	y = 500
+	textSize = 20
+	
+	ctx = screen.context
+	ctx.fillStyle = "rgb(230, 230, 230)"
+	ctx.font = textSize + "px Arial"
+	ctx.textAlign = "center"
+	ctx.textBaseline = "alphabetic"
+	
+	ctx.fillText("Z jump", center, y += textSize)
+	ctx.fillText("X shoot", center, y += textSize)
+	ctx.fillText("ENTER start", center, y += textSize)
+	
+	
 
 drawDebugNotification = ->
 	ctx = screen.context
