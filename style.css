@@ -1,0 +1,17 @@
+/* 
+    Document   : style
+    Created on : 23.12.2012, 18:06:01
+    Author     : Kurisua <kurisu@iki.fi>
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+canvas {
+	border: solid;
+	border-color: rgb(0, 0, 0);
+	border-width: 1px;
+}
