@@ -3,7 +3,7 @@ Rokkimies
 
 Practical work for web browser programming course.
 
-Specifications for game:
+Specifications:
 * Clone of 70's, 80's or 90's game
 * Starting and ending screens
 * Score board
