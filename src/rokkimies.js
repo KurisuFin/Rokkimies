@@ -1,4 +1,4 @@
-var block, color, config, debug, game, highscores, menu, screen, startStage;
+var block, config, debug, game, highscores, menu, screen, startStage;
 
 debug = {
   active: true,
@@ -16,38 +16,6 @@ block = {
     air: "air",
     wall: "wall",
     door: "door"
-  }
-};
-
-color = {
-  background: {
-    start: "rgb(50, 50, 50)",
-    stageSelection: "rgb(180, 180, 255)",
-    game: "rgb(255, 255, 255)",
-    end: "rgb(0, 0, 0)"
-  },
-  block: {
-    air: "rgb(255, 255, 255)",
-    wall: "rgb(150, 150, 150)",
-    door: "rgb(80, 80, 100)"
-  },
-  entity: {
-    player: "rgb(150, 150, 255)",
-    bullet: "rgb(50, 50, 240)",
-    monster: "rgb(50, 50, 50)"
-  },
-  menu: {
-    start: {
-      title: "rgb(230, 230, 255)",
-      highscores: "rgb(255, 255, 255)"
-    },
-    game: {
-      text: "rgb(0, 0, 0)"
-    },
-    end: {
-      text: "rgb(255, 0, 0)",
-      scores: "rgb(255, 255, 255)"
-    }
   }
 };
 
@@ -84,7 +52,7 @@ config = {
   gravity: 0.03,
   bullet: {
     x: 0.2,
-    y: 0,
+    y: 0.0,
     size: 0.3,
     speed: 0.2,
     damage: 10

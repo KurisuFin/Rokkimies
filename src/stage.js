@@ -3,7 +3,6 @@ var AirBlock, Block, DoorBlock, Level, Stage, WallBlock,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
 Stage = (function() {
-
   function Stage() {
     this.levels = [];
     this.active = 0;
@@ -80,11 +79,6 @@ Stage = (function() {
   };
 
   Stage.prototype.changeLevel = function() {
-    /*
-    		level = @levels[@active]
-    		neighbor = @levels[@active+1]
-    		renderChangingLevel(level.getGrid(), neighbor.getGrid())
-    */
     this.nextLevel();
     return game.player.setX(1);
   };
@@ -94,11 +88,10 @@ Stage = (function() {
 })();
 
 Level = (function() {
-
   function Level(width) {
-    var i, j, _i, _j, _k, _ref, _ref1, _ref2, _ref3;
+    var i, j, _i, _j, _k, _ref, _ref1, _ref2;
     this.width = width;
-    if ((_ref = this.width) == null) {
+    if (this.width == null) {
       this.width = config.level.minWidth;
     }
     if (this.width < config.level.minWidth) {
@@ -108,11 +101,11 @@ Level = (function() {
     this.grid = [];
     this.monsters = [];
     this.bullets = [];
-    for (i = _i = 0, _ref1 = this.width - 1; 0 <= _ref1 ? _i <= _ref1 : _i >= _ref1; i = 0 <= _ref1 ? ++_i : --_i) {
+    for (i = _i = 0, _ref = this.width - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
       this.grid[i] = [];
     }
-    for (j = _j = 0, _ref2 = this.height - 1; 0 <= _ref2 ? _j <= _ref2 : _j >= _ref2; j = 0 <= _ref2 ? ++_j : --_j) {
-      for (i = _k = 0, _ref3 = this.width - 1; 0 <= _ref3 ? _k <= _ref3 : _k >= _ref3; i = 0 <= _ref3 ? ++_k : --_k) {
+    for (j = _j = 0, _ref1 = this.height - 1; 0 <= _ref1 ? _j <= _ref1 : _j >= _ref1; j = 0 <= _ref1 ? ++_j : --_j) {
+      for (i = _k = 0, _ref2 = this.width - 1; 0 <= _ref2 ? _k <= _ref2 : _k >= _ref2; i = 0 <= _ref2 ? ++_k : --_k) {
         this.grid[i][j] = new AirBlock(i, j);
       }
     }
@@ -231,7 +224,6 @@ Level = (function() {
 })();
 
 Block = (function() {
-
   function Block() {}
 
   Block.prototype.getPosition = function() {
@@ -263,7 +255,6 @@ Block = (function() {
 })();
 
 AirBlock = (function(_super) {
-
   __extends(AirBlock, _super);
 
   function AirBlock(x, y) {
@@ -279,7 +270,6 @@ AirBlock = (function(_super) {
 })(Block);
 
 WallBlock = (function(_super) {
-
   __extends(WallBlock, _super);
 
   function WallBlock(x, y) {
@@ -295,15 +285,13 @@ WallBlock = (function(_super) {
 })(Block);
 
 DoorBlock = (function(_super) {
-
   __extends(DoorBlock, _super);
 
   function DoorBlock(x, y, active) {
-    var _ref;
     this.x = x;
     this.y = y;
     this.active = active;
-    if ((_ref = this.active) == null) {
+    if (this.active == null) {
       this.active = false;
     }
     this.hittable = true;

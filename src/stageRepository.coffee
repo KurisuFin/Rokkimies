@@ -36,7 +36,6 @@ createTestStage = ->
 	level.addMonster(monster2)
 	
 	
-	
 	passage = new Level(20)
 	
 	for i in [0..passage.getWidth()-1]
@@ -46,7 +45,6 @@ createTestStage = ->
 	for i in [7..9]
 		passage.setToDoor(0, i)
 		passage.setToDoor(passage.getWidth()-1, i, true)
-	
 	
 	
 	bossLevel = new Level()
@@ -71,7 +69,6 @@ createTestStage = ->
 	stage.addLevel(level)
 	stage.addLevel(passage)
 	stage.addLevel(bossLevel)
-	
 	
 	
 	return stage

@@ -1,3 +1,28 @@
+color =
+	background:
+		start: "rgb(50, 50, 50)"
+		stageSelection: "rgb(180, 180, 255)"
+		game: "rgb(255, 255, 255)"
+		end: "rgb(0, 0, 0)"
+	block:
+		air: "rgb(255, 255, 255)"
+		wall: "rgb(150, 150, 150)"
+		door: "rgb(80, 80, 100)"
+	entity:
+		player: "rgb(150, 150, 255)"
+		bullet: "rgb(50, 50, 240)"
+		monster: "rgb(50, 50, 50)"
+	menu:
+		start:
+			title: "rgb(230, 230, 255)"
+			highscores: "rgb(255, 255, 255)"
+		game:
+			text: "rgb(0, 0, 0)"
+		end:
+			text: "rgb(255, 0, 0)"
+			scores: "rgb(255, 255, 255)"
+
+
 render = ->
 	if (game.menu == menu.start)
 		drawBackground(color.background.start)
@@ -129,7 +154,6 @@ drawMonsters = ->
 			screen.context.fillText("Health: " + monster.getHealth(), x*block.size+fix, y*block.size-4)
 
 
-
 drawBullets = ->
 	screen.context.fillStyle = color.entity.bullet
 	
@@ -137,7 +161,6 @@ drawBullets = ->
 		[x, y] = bullet.getPosition()
 		[width, height] = bullet.getSize()
 		draw(x, y, width, height)
-
 
 
 drawPlayer = ->
@@ -183,11 +206,8 @@ drawDebugInfo = (context) ->
 	ctx.fillText("sp y:   " + speedY, posX, posY += rowHeight)
 	ctx.fillText("health: " + health, posX, posY += rowHeight)
 	ctx.fillText("face:   " + facing, posX, posY += rowHeight)
-#	ctx.fillText("state:  " + state, posX, posY += rowHeight)
-#	ctx.fillText("shoot:  " + shooting, posX, posY += rowHeight)
 	ctx.fillText("tick:   " + game.tickCount, posX, posY += rowHeight)
 	ctx.fillText("Press K to kill player", posX, posY += rowHeight)
-
 
 
 draw = (x, y, width, height) ->
@@ -195,7 +215,6 @@ draw = (x, y, width, height) ->
 	fix = locationFix()
 	
 	screen.context.fillRect(x*b+fix, y*b, width*b+1, height*b)
-
 
 
 locationFix = ->
@@ -208,25 +227,3 @@ locationFix = ->
 		return screen.width - game.stage.getWidth() * b
 	else
 		return screen.width / 2 - config.player.width / 2 * b - playerX * b
-
-
-###
-renderChangingLevel = (grid1, grid2) ->
-	b = block.size
-	
-	for glider in [0..screen.width]
-		for row in grid1
-			for square in row
-				screen.context.fillStyle = square.getColor()
-				[x, y] = square.getPosition()
-				screen.context.fillRect(x*b+glider, y*b, width*b+1, height*b)
-	
-	
-	
-	
-	for row in grid
-		for square in row
-			screen.context.fillStyle = square.getColor()
-			[x, y] = square.getPosition()
-			draw(x, y, 1, 1)
-###

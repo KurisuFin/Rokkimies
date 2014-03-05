@@ -7,38 +7,12 @@ debug =
 	align: "left"
 	baseline: "alphabetic"
 
-
 block =
 	size: 40
 	type:
 		air: "air"
 		wall: "wall"
 		door: "door"
-
-color =
-	background:
-		start: "rgb(50, 50, 50)"
-		stageSelection: "rgb(180, 180, 255)"
-		game: "rgb(255, 255, 255)"
-		end: "rgb(0, 0, 0)"
-	block:
-		air: "rgb(255, 255, 255)"
-		wall: "rgb(150, 150, 150)"
-		door: "rgb(80, 80, 100)"
-	entity:
-		player: "rgb(150, 150, 255)"
-		bullet: "rgb(50, 50, 240)"
-		monster: "rgb(50, 50, 50)"
-	menu:
-		start:
-			title: "rgb(230, 230, 255)"
-			highscores: "rgb(255, 255, 255)"
-		game:
-			text: "rgb(0, 0, 0)"
-		end:
-			text: "rgb(255, 0, 0)"
-			scores: "rgb(255, 255, 255)"
-	
 
 screen =
 	width: $("#canvas")[0].width
@@ -68,21 +42,14 @@ config =
 	gravity: 0.03
 	bullet:
 		x: 0.2
-		y: 0			# -1 top of player, 0 middle, 1 bottom
+		y: 0.0			# -1 top of player, 0 middle, 1 bottom
 		size: 0.3
 		speed: 0.2
 		damage: 10
 		
 
 
-	
-
-
-
-
 window.requestAnimFrame = (->
-#	return (callback) -> window.setTimeout(callback, 1000/2)
-
 	return	window.requestAnimationFrame				|| 
 					window.webkitRequestAnimationFrame	|| 
 					window.mozRequestAnimationFrame			|| 
@@ -90,9 +57,8 @@ window.requestAnimFrame = (->
 					window.msRequestAnimationFrame			||
 					(callback) ->
 						window.setTimeout(callback, 1000/60)
-
-	
 )()
+
 
 
 startStage = ->
@@ -110,17 +76,14 @@ game =
 	keyhandler: {}
 	tickCount: 0
 	
-	
 	init: ->
 		@keyhandler = new Keyhandler()
-		
 		
 	logic: ->
 		if @menu == menu.start
 			if @keyhandler.start()
 				if @keyhandler.tryStart()
 					startStage()
-		
 		
 		if @menu == menu.game
 			moveEntities()
@@ -146,17 +109,15 @@ game =
 				if @keyhandler.tryStart()
 					@menu = menu.start
 		
-	
 	render: ->
 		render()
-	
 	
 	tick: ->
 		++game.tickCount
 		game.logic() 
 		game.render()
 		requestAnimFrame(game.tick)
-		
+
 
 
 highscores =

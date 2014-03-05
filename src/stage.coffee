@@ -61,12 +61,6 @@ class Stage
 	
 	
 	changeLevel: ->
-		###
-		level = @levels[@active]
-		neighbor = @levels[@active+1]
-		renderChangingLevel(level.getGrid(), neighbor.getGrid())
-		###
-		
 		@nextLevel()
 		game.player.setX(1)
 

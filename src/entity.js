@@ -85,7 +85,6 @@ removeEntities = function() {
 };
 
 Entity = (function() {
-
   function Entity(x, y, width, height) {
     this.x = x;
     this.y = y;
@@ -346,7 +345,6 @@ Entity = (function() {
 })();
 
 Monster = (function(_super) {
-
   __extends(Monster, _super);
 
   function Monster(x, y, width, height) {
@@ -368,7 +366,6 @@ Monster = (function(_super) {
 })(Entity);
 
 BossMonster = (function(_super) {
-
   __extends(BossMonster, _super);
 
   function BossMonster(x, y, width, height) {
@@ -397,7 +394,6 @@ BossMonster = (function(_super) {
 })(Monster);
 
 Bullet = (function(_super) {
-
   __extends(Bullet, _super);
 
   function Bullet(x, y, width, height) {
@@ -430,7 +426,6 @@ Bullet = (function(_super) {
 })(Entity);
 
 Player = (function(_super) {
-
   __extends(Player, _super);
 
   function Player() {
